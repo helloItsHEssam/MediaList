@@ -25,9 +25,12 @@ let package = Package(
             name: "MediaListFontTests",
             dependencies: ["MediaListFont"]),
         
+        .target(name: "MediaListColor",
+                resources: [.process("Resources")]),
+        
         .target(
             name: "MediaListUIKit",
-            dependencies: ["MediaListFont"]),
+            dependencies: ["MediaListFont", "MediaListColor"]),
         .testTarget(
             name: "MediaListUIKitTests",
             dependencies: ["MediaListUIKit"]),
