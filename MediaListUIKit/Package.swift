@@ -10,7 +10,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "MediaListUIKit",
-            targets: ["MediaListUIKit"]),
+            targets: ["MediaListUIComponent"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -29,10 +29,7 @@ let package = Package(
                 resources: [.process("Resources")]),
         
         .target(
-            name: "MediaListUIKit",
+            name: "MediaListUIComponent",
             dependencies: ["MediaListFont", "MediaListColor"]),
-        .testTarget(
-            name: "MediaListUIKitTests",
-            dependencies: ["MediaListUIKit"]),
     ]
 )
