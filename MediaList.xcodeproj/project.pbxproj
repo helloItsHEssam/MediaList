@@ -14,6 +14,7 @@
 		DE5484AC2AF249CB00922217 /* MediaListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5484AB2AF249CB00922217 /* MediaListTests.swift */; };
 		DE5484B62AF249CB00922217 /* MediaListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5484B52AF249CB00922217 /* MediaListUITests.swift */; };
 		DE5484B82AF249CB00922217 /* MediaListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5484B72AF249CB00922217 /* MediaListUITestsLaunchTests.swift */; };
+		DE5484CB2AF2807F00922217 /* MediaListUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = DE5484CA2AF2807F00922217 /* MediaListUIKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		DE5484B12AF249CB00922217 /* MediaListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediaListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5484B52AF249CB00922217 /* MediaListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListUITests.swift; sourceTree = "<group>"; };
 		DE5484B72AF249CB00922217 /* MediaListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DE5484C82AF26D2600922217 /* MediaListUIKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MediaListUIKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE5484CB2AF2807F00922217 /* MediaListUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,10 +77,12 @@
 		DE54848E2AF249C700922217 = {
 			isa = PBXGroup;
 			children = (
+				DE5484C82AF26D2600922217 /* MediaListUIKit */,
 				DE5484992AF249C700922217 /* MediaList */,
 				DE5484AA2AF249CB00922217 /* MediaListTests */,
 				DE5484B42AF249CB00922217 /* MediaListUITests */,
 				DE5484982AF249C700922217 /* Products */,
+				DE5484C92AF2807F00922217 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +132,13 @@
 			path = MediaListUITests;
 			sourceTree = "<group>";
 		};
+		DE5484C92AF2807F00922217 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +155,9 @@
 			dependencies = (
 			);
 			name = MediaList;
+			packageProductDependencies = (
+				DE5484CA2AF2807F00922217 /* MediaListUIKit */,
+			);
 			productName = MediaList;
 			productReference = DE5484972AF249C700922217 /* MediaList.app */;
 			productType = "com.apple.product-type.application";
@@ -577,6 +592,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DE5484CA2AF2807F00922217 /* MediaListUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MediaListUIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DE54848F2AF249C700922217 /* Project object */;
 }
