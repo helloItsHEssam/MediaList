@@ -30,6 +30,7 @@ let package = Package(
         
         .target(
             name: "MediaListUIComponent",
-            dependencies: ["MediaListFont", "MediaListColor"]),
+            dependencies: ["MediaListFont", "MediaListColor"],
+            resources: [.process("Image/Resources")]),
     ]
 )
