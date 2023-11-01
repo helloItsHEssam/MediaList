@@ -40,12 +40,16 @@ public struct Media: Identifiable, CustomStringConvertible {
             return "The URL of the media has a problem."
         }
         
+        guard URL(string: mediaLink) != nil else {
+            return "The URL of the media has a problem."
+        }
+        
         var prefix: String
         switch type {
         case .image: prefix = "Display image"
         case .video: prefix = "Play video"
         }
         
-        return prefix + "with \(mediaLink) URL"
+        return prefix + " with \(mediaLink) URL"
     }
 }
