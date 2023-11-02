@@ -21,18 +21,26 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
+        .target(name: "Common",
+               dependencies: ["Domain"]),
+        
         .target(
             name: "Mock",
             dependencies: []),
         
         .target(name: "Network",
-               dependencies: ["Alamofire"]),
+               dependencies: ["Alamofire", "Common"]),
         .testTarget(
             name: "NetworkTests",
             dependencies: ["Network", "Mock"]),
         
+        .target(name: "Local",
+                dependencies: ["Common"]),
+        .testTarget(name: "LocalTests",
+                    dependencies: ["Local"]),
+        
         .target(name: "Repositories",
-               dependencies: ["Domain", "Network"]),
+               dependencies: ["Domain", "Network", "Local", "Common"]),
         .testTarget(
             name: "RepositoriesTests",
             dependencies: ["Repositories", "Mock"]),

@@ -8,6 +8,7 @@
 import Foundation
 import Network
 import Domain
+import Common
 
 struct MediaTypeMapper: Mapper {
     

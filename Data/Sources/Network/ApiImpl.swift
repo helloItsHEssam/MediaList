@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import UIKit
+import Common
 
 final public class ApiImpl: Api {
     

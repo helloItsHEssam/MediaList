@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Mapper {
+public protocol Mapper {
 
     associatedtype Entity
     associatedtype Dto
@@ -16,7 +16,7 @@ protocol Mapper {
     func mapDtoToEntity(input: Dto) -> Entity
 }
 
-extension Mapper {
+public extension Mapper {
 
     func mapEntitiesToDtos(input: [Entity]) -> [Dto] {
         return input.map { mapEntityToDto(input: $0) }

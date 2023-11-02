@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import Domain
 import Network
+import Common
 
 public class ImageRepositoryImpl: ImageRepository {
     
