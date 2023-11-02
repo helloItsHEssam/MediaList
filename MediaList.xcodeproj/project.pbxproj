@@ -46,6 +46,7 @@
 		DE5484B52AF249CB00922217 /* MediaListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListUITests.swift; sourceTree = "<group>"; };
 		DE5484B72AF249CB00922217 /* MediaListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DE5484C82AF26D2600922217 /* MediaListUIKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MediaListUIKit; sourceTree = "<group>"; };
+		DE5484CC2AF2C84000922217 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +78,7 @@
 		DE54848E2AF249C700922217 = {
 			isa = PBXGroup;
 			children = (
+				DE5484CC2AF2C84000922217 /* Domain */,
 				DE5484C82AF26D2600922217 /* MediaListUIKit */,
 				DE5484992AF249C700922217 /* MediaList */,
 				DE5484AA2AF249CB00922217 /* MediaListTests */,
