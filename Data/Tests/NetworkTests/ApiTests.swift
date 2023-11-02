@@ -85,10 +85,11 @@ final class ApiTests: XCTestCase {
         let imageUrl = "https://wallpapershome.com/images/pages/ico_h/25371.jpg"
         do {
             // when
-            let image = try await api.fetchImage(route: .fetchImage(imageUrl: imageUrl))
+            let imageData = try await api.fetchImageData(route: .fetchImage(imageUrl: imageUrl))
+            let image = UIImage(data: imageData)
             
             // then
-            XCTAssertEqual(image.size.width, 800)
+            XCTAssertEqual(image?.size.width, 800)
 
         } catch {
             // then
@@ -103,10 +104,11 @@ final class ApiTests: XCTestCase {
         let imageUrl = "https://wallpapershome.com/images/pages/ico_h/253232371.jpg"
         do {
             // when
-            let image = try await api.fetchImage(route: .fetchImage(imageUrl: imageUrl))
+            let imageData = try await api.fetchImageData(route: .fetchImage(imageUrl: imageUrl))
+            let image = UIImage(data: imageData)
             
             // then
-            XCTAssertNotEqual(image.size.width, 800)
+            XCTAssertNotEqual(image?.size.width, 800)
 
         } catch {
             // then

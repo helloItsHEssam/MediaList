@@ -8,6 +8,7 @@
 import XCTest
 import Domain
 @testable import Network
+@testable import Local
 @testable import Repositories
 
 final class ImageRepositoryTests: XCTestCase {
@@ -16,13 +17,18 @@ final class ImageRepositoryTests: XCTestCase {
     
     override func tearDown() {
         repository = nil
+        
+        let documentsDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        let fileURL = documentsDirectory.appendingPathComponent("25371" + ".png")
+        try? FileManager.default.removeItem(atPath: fileURL.path)
     }
     
     func testSuccessFetchPreviewSizeFromServer() async {
         
         // given
         let api = ApiImpl()
-        repository = ImageRepositoryImpl(api: api)
+        let localStorage = LocalStorageImpl()
+        repository = ImageRepositoryImpl(api: api, localStorage: localStorage)
         let imageUrl = "https://wallpapershome.com/images/pages/ico_h/25371.jpg"
         
         do {
@@ -43,7 +49,8 @@ final class ImageRepositoryTests: XCTestCase {
         
         // given
         let api = ApiImpl()
-        repository = ImageRepositoryImpl(api: api)
+        let localStorage = LocalStorageImpl()
+        repository = ImageRepositoryImpl(api: api, localStorage: localStorage)
         let imageUrl = "https://wallpapershome.com/images/pages/ico_h/25332371.jpg"
         
         do {
@@ -60,7 +67,8 @@ final class ImageRepositoryTests: XCTestCase {
         
         // given
         let api = ApiImpl()
-        repository = ImageRepositoryImpl(api: api)
+        let localStorage = LocalStorageImpl()
+        repository = ImageRepositoryImpl(api: api, localStorage: localStorage)
         let imageUrl = "https://wallpapershome.com/images/pages/ico_h/25371.jpg"
         
         do {
@@ -73,6 +81,94 @@ final class ImageRepositoryTests: XCTestCase {
         } catch {
             // then
             XCTAssertNil(error as? NetworkError)
+        }
+    }
+    
+    func testFailFetchImageFromLocal() async {
+        
+        // given
+        let api = ApiImpl()
+        let localStorage = LocalStorageImpl()
+        repository = ImageRepositoryImpl(api: api, localStorage: localStorage)
+        let imageUrl = "https://wallpapershome.com/images/pages/ico_h/25372221.jpg"
+        
+        do {
+            // when
+            let imageFromLocal = try await repository.fetchImageFromLocal(imageName: imageUrl)
+            
+            // then
+            XCTAssertEqual(imageFromLocal.size.width, 800)
+
+        } catch {
+            // then
+            XCTAssertNotNil(error as? LocalError)
+        }
+    }
+    
+    func testSaveImageToDisk() async {
+        
+        // given
+        let api = ApiImpl()
+        let localStorage = LocalStorageImpl()
+        repository = ImageRepositoryImpl(api: api, localStorage: localStorage)
+        let imageUrl = "https://wallpapershome.com/images/pages/ico_h/25371.jpg"
+        
+        do {
+            // when
+            let image = try await repository.fetchImageFromServer(imageUrl: imageUrl)
+            try await repository.saveImageToDisk(imageName: imageUrl, image: image)
+            let imageFromLocal = try await repository.fetchImageFromLocal(imageName: imageUrl)
+            
+            // then
+            XCTAssertEqual(imageFromLocal.size.width, 800)
+
+        } catch {
+            // then
+            XCTAssertNil(error as? NetworkError)
+        }
+    }
+    
+    func testFetchPreviewSizeFromLocal() async {
+        
+        // given
+        let api = ApiImpl()
+        let localStorage = LocalStorageImpl()
+        repository = ImageRepositoryImpl(api: api, localStorage: localStorage)
+        let imageUrl = "https://wallpapershome.com/images/pages/ico_h/25371.jpg"
+        
+        do {
+            // when
+            let image = try await repository.fetchImageFromServer(imageUrl: imageUrl)
+            try await repository.saveImageToDisk(imageName: imageUrl, image: image)
+            let size = try await repository.fetchImageSizeFromLocal(imageName: imageUrl)
+            
+            // then
+            XCTAssertEqual(size.width, 800)
+            XCTAssertEqual(size.height, 450)
+            
+        } catch {
+            // then
+            XCTAssertNil(error)
+        }
+    }
+    
+    func testFailFetchPreviewSizeFromLocal() async {
+        
+        // given
+        let api = ApiImpl()
+        let localStorage = LocalStorageImpl()
+        repository = ImageRepositoryImpl(api: api, localStorage: localStorage)
+        let imageUrl = "https://wallpapershome.com/images/pages/ico_h/3232332.jpg"
+        
+        do {
+            // when
+            let _ = try await repository.fetchImageSizeFromLocal(imageName: imageUrl)
+            
+            // then
+            
+        } catch {
+            // then
+            XCTAssertNotNil(error)
         }
     }
 }

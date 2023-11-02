@@ -13,5 +13,5 @@ public protocol LocalStorage {
 
     func fetchImageSize(imageUrl urlString: String) async throws -> PreviewMediaSizeDTO
     func fetchImage(imageUrl urlString: String) async throws -> UIImage
-    func saveImageToDisk(imageName name: String, image: UIImage) async throws
+    func saveImageToDisk(imageUrl urlString: String, image: UIImage) async throws
 }

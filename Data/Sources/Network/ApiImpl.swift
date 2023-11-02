@@ -80,7 +80,7 @@ final public class ApiImpl: Api {
         }
     }
     
-    public func fetchImage(route: ApiRouter) async throws -> UIImage {
+    public func fetchImageData(route: ApiRouter) async throws -> Data {
         return try await withCheckedThrowingContinuation({ [weak self] continuation in
             guard let self else {
                 continuation.resume(throwing: NetworkError.cannotFetchImage)
@@ -92,12 +92,7 @@ final public class ApiImpl: Api {
                 .responseData { responseData in
                     switch responseData.result {
                     case .success(let data):
-                        guard let image = UIImage(data: data) else {
-                            continuation.resume(throwing: NetworkError.cannotFetchImage)
-                            return
-                        }
-                        
-                        continuation.resume(returning: image)
+                        continuation.resume(returning: data)
                         
                     case .failure:
                         continuation.resume(throwing: NetworkError.cannotFetchImage)

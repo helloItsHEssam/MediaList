@@ -37,7 +37,7 @@ let package = Package(
         .target(name: "Local",
                 dependencies: ["Common"]),
         .testTarget(name: "LocalTests",
-                    dependencies: ["Local"]),
+                    dependencies: ["Local", "Network"]),
         
         .target(name: "Repositories",
                dependencies: ["Domain", "Network", "Local", "Common"]),
