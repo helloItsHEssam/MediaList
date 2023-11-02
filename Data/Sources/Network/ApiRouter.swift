@@ -8,13 +8,13 @@
 import Foundation
 import Alamofire
 
-enum ApiRouter: URLRequestConvertible {
+public enum ApiRouter: URLRequestConvertible {
     
-    typealias Params = [String: Any]
+    public typealias Params = [String: Any]
     
     case mediaList
     
-    func asURLRequest() throws -> URLRequest {
+    public func asURLRequest() throws -> URLRequest {
         
         let httpMethod = getHttpMethod()
         let url = createURL()
@@ -34,7 +34,7 @@ enum ApiRouter: URLRequestConvertible {
     }
 }
 
-extension ApiRouter {
+public extension ApiRouter {
     
     func getHttpMethod() -> HTTPMethod {
         switch self {

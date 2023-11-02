@@ -8,6 +8,7 @@
 import XCTest
 import Alamofire
 @testable import Network
+@testable import Mock
 
 final class ApiTests: XCTestCase {
  

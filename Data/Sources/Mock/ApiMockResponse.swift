@@ -22,4 +22,3 @@ struct ApiMockResponse: Hashable, Equatable {
         lhs.hashValue == rhs.hashValue
     }
 }
-

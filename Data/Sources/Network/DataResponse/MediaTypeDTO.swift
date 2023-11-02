@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MediaTypeDTO: String, Decodable {
+public enum MediaTypeDTO: String, Decodable {
     
     case image
     case video
