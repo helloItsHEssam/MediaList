@@ -19,7 +19,7 @@ public struct Media: Identifiable, CustomStringConvertible {
     public var mediaLink: String?
     public var previewMediaSize: PreviewMediaSize?
     
-    init(title: String?, type: MediaType?,
+    public init(title: String?, type: MediaType?,
          previewLink: String?, mediaLink: String?) {
         self.title = title
         self.type = type
