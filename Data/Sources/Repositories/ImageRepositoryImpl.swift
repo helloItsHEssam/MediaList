@@ -8,11 +8,20 @@
 import Foundation
 import UIKit
 import Domain
+import Network
 
 public class ImageRepositoryImpl: ImageRepository {
     
+    private var api: Api
+    private var previewImageSizeMapper: PreviewMediaSizeMapper
+    
+    public init(api: Api) {
+        self.api = api
+        self.previewImageSizeMapper = .init()
+    }
+    
     public func fetchImageFromServer(imageUrl url: String) async throws -> UIImage {
-        fatalError()
+        return try await api.fetchImage(route: .fetchImage(imageUrl: url))
     }
     
     public func fetchImageFromLocal(imageName name: String) async throws -> UIImage {
@@ -24,7 +33,8 @@ public class ImageRepositoryImpl: ImageRepository {
     }
     
     public func fetchImageSizeFromServer(imageUrl url: String) async throws -> Domain.PreviewMediaSize {
-        fatalError()
+        let previewSizeDto = try await self.api.fetchImageSize(imageUrl: url)
+        return previewImageSizeMapper.mapDtoToEntity(input: previewSizeDto)
     }
     
     public func fetchImageSizeFromLocal(imageName name: String) async throws -> Domain.PreviewMediaSize {

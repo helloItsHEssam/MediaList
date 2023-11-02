@@ -13,6 +13,7 @@ public enum ApiRouter: URLRequestConvertible {
     public typealias Params = [String: Any]
     
     case mediaList
+    case fetchImage(imageUrl: String)
     
     public func asURLRequest() throws -> URLRequest {
         
@@ -38,7 +39,7 @@ public extension ApiRouter {
     
     func getHttpMethod() -> HTTPMethod {
         switch self {
-        case .mediaList:
+        case .mediaList, .fetchImage:
             return .get
         }
     }
@@ -51,14 +52,23 @@ public extension ApiRouter {
         switch self {
         case .mediaList:
             return "/medialist"
+            
+        case .fetchImage(let imageUrl):
+            return imageUrl
         }
     }
     
     func createURL() -> URL {
-        var component = URLComponents()
-        component.scheme = "https"
-        component.host = "c62881db-c803-4c5e-907e-3b1d843fa7fd.mock.pstmn.io"
-        component.path = urlPath
-        return component.url!
+        switch self {
+        case .fetchImage(let imageUrl):
+            return URL(string: imageUrl)!
+
+        default:
+            var component = URLComponents()
+            component.scheme = "https"
+            component.host = "c62881db-c803-4c5e-907e-3b1d843fa7fd.mock.pstmn.io"
+            component.path = urlPath
+            return component.url!
+        }
     }
 }

@@ -33,7 +33,7 @@ final class ApiTests: XCTestCase {
 
         } catch {
             // then
-            XCTAssertNil(error as? AFError)
+            XCTAssertNil(error as? NetworkError)
         }
     }
     
@@ -75,6 +75,42 @@ final class ApiTests: XCTestCase {
             let networkError = error as? NetworkError
             XCTAssertNotNil(networkError)
             XCTAssertEqual(networkError, .cannotParseJson)
+        }
+    }
+    
+    func testRealFetchImage() async {
+        
+        // given
+        api = ApiImpl()
+        let imageUrl = "https://wallpapershome.com/images/pages/ico_h/25371.jpg"
+        do {
+            // when
+            let image = try await api.fetchImage(route: .fetchImage(imageUrl: imageUrl))
+            
+            // then
+            XCTAssertEqual(image.size.width, 800)
+
+        } catch {
+            // then
+            XCTAssertNil(error as? NetworkError)
+        }
+    }
+    
+    func testBadURLForFetchImage() async {
+        
+        // given
+        api = ApiImpl()
+        let imageUrl = "https://wallpapershome.com/images/pages/ico_h/253232371.jpg"
+        do {
+            // when
+            let image = try await api.fetchImage(route: .fetchImage(imageUrl: imageUrl))
+            
+            // then
+            XCTAssertNotEqual(image.size.width, 800)
+
+        } catch {
+            // then
+            XCTAssertNotNil(error as? NetworkError)
         }
     }
 }
