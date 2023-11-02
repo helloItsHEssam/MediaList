@@ -24,7 +24,7 @@ public class MediaUseCaseImpl: MediaUseCase {
             guard let self else { throw DomainError.cannotFetchMediaList }
             
             let mediaList = try await self.mediaRepository.fetchMediaList()
-            return await fetchMediaPreviewSize(forMediaList: mediaList)
+            return await self.fetchMediaPreviewSize(forMediaList: mediaList)
         }
     }
 
@@ -89,9 +89,22 @@ public class MediaUseCaseImpl: MediaUseCase {
         return newMediaWithSize
     }
     
-    public func fetchImage(from url: String) -> AnyPublisher<Image, DomainError> {
-        return AnyPublisher(taskPriority: .userInitiated) {
-            throw DomainError.cannotRetrieveImage
+    public func fetchImage(WithImageName imageName: String) -> AnyPublisher<Image, DomainError> {
+        return AnyPublisher { [weak self] in
+            guard let self else { throw DomainError.cannotRetrieveImage }
+            
+            var uiImage: UIImage
+            do {
+                uiImage = try await self.imageRepository.fetchImageFromLocal(imageName: imageName)
+            } catch {
+                uiImage = try await self.imageRepository.fetchImageFromServer(imageUrl: imageName)
+                
+                // does not matter if could not save into disk
+                try? await self.imageRepository.saveImageToDisk(imageName: imageName, image: uiImage)
+            }
+            
+            let image = Image(uiImage: uiImage)
+            return image
         }
     }
 }
