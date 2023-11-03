@@ -37,26 +37,29 @@ public class MediaUseCaseImpl: MediaUseCase {
                       returning: [Media].self) { [weak self] taskGroup in
             guard let self else { return mediaList }
             
-            var mediaListWithSize = [Media]()
-            mediaListWithSize.reserveCapacity(mediaList.count)
+            var mediaListWithSize = mediaList
             
             let totalSize = mediaList.count
             let batchSize = totalSize < 4 ? totalSize : 4
 
             for index in 0 ..< batchSize {
                 taskGroup.addTask {
-                    await self.fetchPreviewImageSize(forMedia: mediaList[index])
+                    var media = await self.fetchPreviewImageSize(forMedia: mediaList[index])
+                    media.indexAtList = index
+                    return media
                 }
             }
             
             var index = batchSize
             
             for await media in taskGroup {
-                mediaListWithSize.append(media)
+                mediaListWithSize[media.indexAtList] = media
                 
                 if index < totalSize {
                     taskGroup.addTask { [index] in
-                        await self.fetchPreviewImageSize(forMedia: mediaList[index])
+                        var media = await self.fetchPreviewImageSize(forMedia: mediaList[index])
+                        media.indexAtList = index
+                        return media
                     }
                     
                     index += 1

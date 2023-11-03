@@ -18,6 +18,7 @@ public struct Media: Identifiable, CustomStringConvertible {
     public var previewLink: String?
     public var mediaLink: String?
     public var previewMediaSize: PreviewMediaSize?
+    var indexAtList: Int = 0
     
     public init(title: String?, type: MediaType?,
          previewLink: String?, mediaLink: String?) {

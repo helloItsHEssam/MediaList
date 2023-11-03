@@ -15,24 +15,33 @@ In the **"Data"** module that we've created, there are the following targets:
 
 - **Common**: This section contains items that are needed across all other sections. For more details, refer to the provided link.
 <br>
+<br>
 [Common.md](Common.md)
-
+<br>
 
 - **Local**: In this section, the program fulfills all its requirements for storing and retrieving images from the device's memory. For more details, refer to the provided link.
 <br>
+<br>
 [Local.md](Local.md)
+<br>
 
 - **Mock**: This section provides all the necessary requirements for the testing environment. For more details, refer to the provided link.
 <br>
+<br>
 [Mock.md](Mock.md)
+<br>
 
 - **Network**: In this section, the program manages requests to the server. For more details, refer to the provided link.
 <br>
+<br>
 [Network.md](Network.md)
+<br>
 
 - **Repositories**: In this section, protocols needed by the "Domain" module are implemented. For more details, refer to the provided link.
 <br>
+<br>
 [Repositories.md](Repositories.md)
+<br>
 
 ## Targets
 In this module, only the **"Alamofire"** library has been used for the "Network" target.

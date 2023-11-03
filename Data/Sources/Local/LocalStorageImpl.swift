@@ -80,7 +80,6 @@ final public class LocalStorageImpl: LocalStorage {
             
             do {
                 try imageData.write(to: fileURL)
-                print("save path: \(fileURL.path)")
                 continuation.resume()
 
             } catch {
