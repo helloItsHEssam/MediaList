@@ -23,8 +23,12 @@ public class MediaUseCaseImpl: MediaUseCase {
         return AnyPublisher { [weak self] in
             guard let self else { throw DomainError.cannotFetchMediaList }
             
-            let mediaList = try await self.mediaRepository.fetchMediaList()
-            return await self.fetchMediaPreviewSize(forMediaList: mediaList)
+            do {
+                let mediaList = try await self.mediaRepository.fetchMediaList()
+                return await self.fetchMediaPreviewSize(forMediaList: mediaList)
+            } catch {
+                throw DomainError.cannotFetchMediaList
+            }
         }
     }
 
@@ -97,7 +101,12 @@ public class MediaUseCaseImpl: MediaUseCase {
             do {
                 uiImage = try await self.imageRepository.fetchImageFromLocal(imageUrl: imageUrl)
             } catch {
-                uiImage = try await self.imageRepository.fetchImageFromServer(imageUrl: imageUrl)
+                guard let imageFromServer = try? await self.imageRepository
+                    .fetchImageFromServer(imageUrl: imageUrl) else {
+                    throw DomainError.cannotRetrieveImage
+                }
+                
+                uiImage = imageFromServer
                 
                 // does not matter if could not save into disk
                 try? await self.imageRepository.saveImageToDisk(imageUrl: imageUrl, image: uiImage)

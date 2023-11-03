@@ -94,7 +94,7 @@ final class ImageRepositoryTests: XCTestCase {
         
         do {
             // when
-            let imageFromLocal = try await repository.fetchImageFromLocal(imageName: imageUrl)
+            let imageFromLocal = try await repository.fetchImageFromLocal(imageUrl: imageUrl)
             
             // then
             XCTAssertEqual(imageFromLocal.size.width, 800)
@@ -116,8 +116,8 @@ final class ImageRepositoryTests: XCTestCase {
         do {
             // when
             let image = try await repository.fetchImageFromServer(imageUrl: imageUrl)
-            try await repository.saveImageToDisk(imageName: imageUrl, image: image)
-            let imageFromLocal = try await repository.fetchImageFromLocal(imageName: imageUrl)
+            try await repository.saveImageToDisk(imageUrl: imageUrl, image: image)
+            let imageFromLocal = try await repository.fetchImageFromLocal(imageUrl: imageUrl)
             
             // then
             XCTAssertEqual(imageFromLocal.size.width, 800)
@@ -139,8 +139,8 @@ final class ImageRepositoryTests: XCTestCase {
         do {
             // when
             let image = try await repository.fetchImageFromServer(imageUrl: imageUrl)
-            try await repository.saveImageToDisk(imageName: imageUrl, image: image)
-            let size = try await repository.fetchImageSizeFromLocal(imageName: imageUrl)
+            try await repository.saveImageToDisk(imageUrl: imageUrl, image: image)
+            let size = try await repository.fetchImageSizeFromLocal(imageUrl: imageUrl)
             
             // then
             XCTAssertEqual(size.width, 800)
@@ -162,7 +162,7 @@ final class ImageRepositoryTests: XCTestCase {
         
         do {
             // when
-            let _ = try await repository.fetchImageSizeFromLocal(imageName: imageUrl)
+            let _ = try await repository.fetchImageSizeFromLocal(imageUrl: imageUrl)
             
             // then
             
