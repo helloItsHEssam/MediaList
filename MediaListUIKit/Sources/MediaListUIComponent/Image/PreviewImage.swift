@@ -10,15 +10,15 @@ import SwiftUI
 public struct PreviewImage: View {
     
     private var placeholder: Image
-    @Binding private var image: Image?
+    private var image: Image?
     
-    public init(image: Binding<Image?>) {
+    public init(image: Image?) {
         let placeholder = Image("placeholder", bundle: .module)
         self.init(image: image, placeholder: placeholder)
     }
     
-    public init(image: Binding<Image?>, placeholder: Image) {
-        self._image = image
+    public init(image: Image?, placeholder: Image) {
+        self.image = image
         self.placeholder = placeholder
     }
 
@@ -26,6 +26,6 @@ public struct PreviewImage: View {
         let showImage = image ?? placeholder
         showImage
             .resizable()
-            .scaledToFit()
+            .scaledToFill()
     }
 }
