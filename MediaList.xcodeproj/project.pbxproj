@@ -16,7 +16,6 @@
 		DE54849B2AF249C700922217 /* MediaListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE54849A2AF249C700922217 /* MediaListApp.swift */; };
 		DE54849F2AF249CA00922217 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE54849E2AF249CA00922217 /* Assets.xcassets */; };
 		DE5484A22AF249CA00922217 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE5484A12AF249CA00922217 /* Preview Assets.xcassets */; };
-		DE5484AC2AF249CB00922217 /* MediaListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5484AB2AF249CB00922217 /* MediaListTests.swift */; };
 		DE5484B62AF249CB00922217 /* MediaListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5484B52AF249CB00922217 /* MediaListUITests.swift */; };
 		DE5484B82AF249CB00922217 /* MediaListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5484B72AF249CB00922217 /* MediaListUITestsLaunchTests.swift */; };
 		DE5484CB2AF2807F00922217 /* MediaListUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = DE5484CA2AF2807F00922217 /* MediaListUIKit */; };
@@ -30,6 +29,7 @@
 		DE69D4CC2AF4FE8700E0A5BA /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4CB2AF4FE8700E0A5BA /* DIContainer.swift */; };
 		DE69D4CE2AF4FE9B00E0A5BA /* DIContainerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4CD2AF4FE9B00E0A5BA /* DIContainerImpl.swift */; };
 		DE69D4D02AF4FEC200E0A5BA /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4CF2AF4FEC200E0A5BA /* ViewModelFactory.swift */; };
+		DE69D4D72AF526FA00E0A5BA /* MediaViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4D62AF526FA00E0A5BA /* MediaViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,6 @@
 		DE54849E2AF249CA00922217 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE5484A12AF249CA00922217 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DE5484A72AF249CB00922217 /* MediaListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediaListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE5484AB2AF249CB00922217 /* MediaListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListTests.swift; sourceTree = "<group>"; };
 		DE5484B12AF249CB00922217 /* MediaListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediaListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE5484B52AF249CB00922217 /* MediaListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListUITests.swift; sourceTree = "<group>"; };
 		DE5484B72AF249CB00922217 /* MediaListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		DE69D4CB2AF4FE8700E0A5BA /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		DE69D4CD2AF4FE9B00E0A5BA /* DIContainerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainerImpl.swift; sourceTree = "<group>"; };
 		DE69D4CF2AF4FEC200E0A5BA /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
+		DE69D4D62AF526FA00E0A5BA /* MediaViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewModelTests.swift; sourceTree = "<group>"; };
 		DED78C6D2AF3DBE000E300C9 /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Data; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,7 +206,7 @@
 		DE5484AA2AF249CB00922217 /* MediaListTests */ = {
 			isa = PBXGroup;
 			children = (
-				DE5484AB2AF249CB00922217 /* MediaListTests.swift */,
+				DE69D4D12AF5269D00E0A5BA /* MediaListScenesTests */,
 			);
 			path = MediaListTests;
 			sourceTree = "<group>";
@@ -280,6 +280,30 @@
 				DE69D4CD2AF4FE9B00E0A5BA /* DIContainerImpl.swift */,
 			);
 			path = DI;
+			sourceTree = "<group>";
+		};
+		DE69D4D12AF5269D00E0A5BA /* MediaListScenesTests */ = {
+			isa = PBXGroup;
+			children = (
+				DE69D4D22AF526A700E0A5BA /* MediaListTests */,
+			);
+			path = MediaListScenesTests;
+			sourceTree = "<group>";
+		};
+		DE69D4D22AF526A700E0A5BA /* MediaListTests */ = {
+			isa = PBXGroup;
+			children = (
+				DE69D4D32AF526C900E0A5BA /* ViewModelTests */,
+			);
+			path = MediaListTests;
+			sourceTree = "<group>";
+		};
+		DE69D4D32AF526C900E0A5BA /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				DE69D4D62AF526FA00E0A5BA /* MediaViewModelTests.swift */,
+			);
+			path = ViewModelTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +382,7 @@
 					};
 					DE5484A62AF249CB00922217 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 						TestTargetID = DE5484962AF249C700922217;
 					};
 					DE5484B02AF249CB00922217 = {
@@ -439,7 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE5484AC2AF249CB00922217 /* MediaListTests.swift in Sources */,
+				DE69D4D72AF526FA00E0A5BA /* MediaViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,6 +670,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -653,6 +679,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.helloitshessam.MediaListTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MediaList.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MediaList";
@@ -664,6 +691,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

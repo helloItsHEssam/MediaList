@@ -14,34 +14,67 @@ struct MediaItemView: View {
     
     private var media: Media
     private var screenSize: CGSize
+    @ObservedObject private var viewModel: MediaViewModel
     @State private var image: Image?
     
-    init(media: Media, screenSize: CGSize) {
+    init(media: Media, screenSize: CGSize, viewModel: MediaViewModel) {
         self.media = media
         self.screenSize = screenSize
+        self.viewModel = viewModel
     }
     
     var body: some View {
         ZStack {
-            PreviewImage(image: $image)
-                .frame(width: screenSize.width, height: screenSize.width * 1.25)
+            let height = media.previewMediaSize?.calculateViewHeight(basedOnScreenWidth: screenSize.width)
+            PreviewImage(image: image)
+                .frame(width: screenSize.width, height: height)
                 .clipped()
+        }
+        .onAppear {
+            fetchImageIfNeeded()
         }
         .overlay(alignment: .bottom) {
             HStack {
-                Color.clear
-                    .frame(width: 30, height: 30)
+                if media.type == .video {
+                    Color.clear
+                        .frame(width: 30, height: 30)
+                    
+                    Spacer()
+                }
                 
-                Spacer()
                 ListText(content: media.title ?? "")
                 
-                Spacer()
-                Color.green
-                    .frame(width: 30, height: 30)
+                if media.type == .video {
+                    
+                    Spacer()
+                    Image("play")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30)
+                }
             }
             .padding([.all], 8)
             .frame(maxWidth: .infinity)
             .background(MediaListTheme.supplementaryBackground)
+        }
+    }
+    
+    private func fetchImageIfNeeded() {
+        guard image == nil else { return }
+        
+        viewModel.fetchMediaImage(WithUrlImage: media.previewLink) { previewImage in
+            image = previewImage
+        }
+    }
+}
+
+// TODO: - move to domain module
+extension PreviewMediaSize {
+    
+    func calculateViewHeight(basedOnScreenWidth screenWidth: CGFloat) -> CGFloat {
+        switch self.orientation {
+        case .landscape: return 0.56 * screenWidth
+        case .portrait: return 1.25 * screenWidth
         }
     }
 }

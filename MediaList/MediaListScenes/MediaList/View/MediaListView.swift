@@ -11,8 +11,6 @@ import MediaListColor
 import MediaListUIComponent
 
 struct MediaListView: View {
-    private var list = [Media(title: "hessam", type: .image, previewLink: "111", mediaLink: nil),
-                        Media(title: "dsasd", type: .image, previewLink: "222", mediaLink: nil)]
     
     @StateObject private var viewModel = ViewModelFactory.shared.createMediaViewModel()
 
@@ -22,7 +20,7 @@ struct MediaListView: View {
             switch viewModel.viewState {
             case .error(let alertContent):
                 AlertView(content: alertContent) {
-                    // TODO: -
+                    viewModel.fetchMediaList()
                 }
 
             case .loading: ProgressView()
@@ -31,11 +29,15 @@ struct MediaListView: View {
                 GeometryReader { geometry in
                     ScrollView(showsIndicators: true) {
                         let size = CGSize(width: geometry.size.width - 40, height: geometry.size.height)
-                        MediaGridView(mediaList: list, screenSize: size)
+                        MediaGridView(mediaList: $viewModel.mediaList,
+                                      screenSize: size, viewModel: viewModel)
                     }
                 }
             }
         }
         .modifier(ViewAlignment(alignment: .center))
+        .onAppear {
+            viewModel.fetchMediaList()
+        }
     }
 }

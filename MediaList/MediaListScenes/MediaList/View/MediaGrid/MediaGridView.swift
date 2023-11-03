@@ -10,19 +10,24 @@ import Domain
 
 struct MediaGridView: View {
     
-    private var mediaList: [Media]
+    @Binding private var mediaList: [Media]
     private var screenSize: CGSize
+    @ObservedObject private var viewModel: MediaViewModel
     
-    init(mediaList: [Media], screenSize: CGSize) {
-        self.mediaList = mediaList
+    init(mediaList: Binding<[Media]>, screenSize: CGSize, viewModel: MediaViewModel) {
+        self._mediaList = mediaList
         self.screenSize = screenSize
+        self.viewModel = viewModel
     }
     
     var body: some View {
         LazyVGrid(columns: [GridItem(.flexible())], spacing: 20) {
             ForEach(mediaList) { media in
-                MediaItemView(media: media, screenSize: screenSize)
+                MediaItemView(media: media, screenSize: screenSize, viewModel: viewModel)
                     .cornerRadius(12)
+                    .onTapGesture {
+                        // TODO: - view model change screen
+                    }
             }
         }
         .padding([.all], 20)
