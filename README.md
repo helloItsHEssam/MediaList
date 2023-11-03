@@ -66,6 +66,18 @@ In the Presentation section, the following key components are present:
 
 3. **ViewModelFactory:** The purpose of this class is to create view models. It handles the creation of view models that may require specific use cases. In this scenario, views don't directly get involved in the construction of view models; instead, the ViewModelFactory takes care of it.
 
+## Roadmap
+
+- [ ] Test
+  - [ ] UItest cases.
+  - [ ] Test plan.
+- [ ] CI
+  - [ ] setup Github Action.
+
+## Note
+
+If the links in the MD files are not working, it's better to clone the source code and view it using VSCode. I have no idea why it's not working.
+
 ###  Contributing 🤝
 
 Contributions, issues, and feature requests are welcome! Feel free to fork the repository and submit a pull request with your changes.
