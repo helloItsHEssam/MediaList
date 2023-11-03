@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE4B28582AF442900021A482 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = DE4B28572AF442900021A482 /* Data */; };
+		DE4B285A2AF442900021A482 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = DE4B28592AF442900021A482 /* Domain */; };
+		DE4B285D2AF4454F0021A482 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B285C2AF4454F0021A482 /* AppDelegate.swift */; };
+		DE4B28632AF446950021A482 /* MediaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B28622AF446950021A482 /* MediaListView.swift */; };
+		DE4B28652AF447220021A482 /* ViewAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B28642AF447220021A482 /* ViewAlignment.swift */; };
+		DE4B286E2AF44D5F0021A482 /* MediaItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4B286C2AF44D5E0021A482 /* MediaItemView.swift */; };
 		DE54849B2AF249C700922217 /* MediaListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE54849A2AF249C700922217 /* MediaListApp.swift */; };
-		DE54849D2AF249C700922217 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE54849C2AF249C700922217 /* ContentView.swift */; };
 		DE54849F2AF249CA00922217 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE54849E2AF249CA00922217 /* Assets.xcassets */; };
 		DE5484A22AF249CA00922217 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE5484A12AF249CA00922217 /* Preview Assets.xcassets */; };
 		DE5484AC2AF249CB00922217 /* MediaListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5484AB2AF249CB00922217 /* MediaListTests.swift */; };
 		DE5484B62AF249CB00922217 /* MediaListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5484B52AF249CB00922217 /* MediaListUITests.swift */; };
 		DE5484B82AF249CB00922217 /* MediaListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5484B72AF249CB00922217 /* MediaListUITestsLaunchTests.swift */; };
 		DE5484CB2AF2807F00922217 /* MediaListUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = DE5484CA2AF2807F00922217 /* MediaListUIKit */; };
+		DE69D4B72AF4EA4C00E0A5BA /* MediaGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4B62AF4EA4C00E0A5BA /* MediaGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE4B285C2AF4454F0021A482 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DE4B28622AF446950021A482 /* MediaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListView.swift; sourceTree = "<group>"; };
+		DE4B28642AF447220021A482 /* ViewAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAlignment.swift; sourceTree = "<group>"; };
+		DE4B286C2AF44D5E0021A482 /* MediaItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaItemView.swift; sourceTree = "<group>"; };
 		DE5484972AF249C700922217 /* MediaList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE54849A2AF249C700922217 /* MediaListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListApp.swift; sourceTree = "<group>"; };
-		DE54849C2AF249C700922217 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DE54849E2AF249CA00922217 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE5484A12AF249CA00922217 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DE5484A72AF249CB00922217 /* MediaListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediaListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +56,7 @@
 		DE5484B72AF249CB00922217 /* MediaListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DE5484C82AF26D2600922217 /* MediaListUIKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MediaListUIKit; sourceTree = "<group>"; };
 		DE5484CC2AF2C84000922217 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
+		DE69D4B62AF4EA4C00E0A5BA /* MediaGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaGridView.swift; sourceTree = "<group>"; };
 		DED78C6D2AF3DBE000E300C9 /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Data; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE4B285A2AF442900021A482 /* Domain in Frameworks */,
+				DE4B28582AF442900021A482 /* Data in Frameworks */,
 				DE5484CB2AF2807F00922217 /* MediaListUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +88,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE4B285B2AF445450021A482 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DE54849A2AF249C700922217 /* MediaListApp.swift */,
+				DE4B285C2AF4454F0021A482 /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DE4B285E2AF4464A0021A482 /* MediaListScenes */ = {
+			isa = PBXGroup;
+			children = (
+				DE4B285F2AF446630021A482 /* MediaList */,
+			);
+			path = MediaListScenes;
+			sourceTree = "<group>";
+		};
+		DE4B285F2AF446630021A482 /* MediaList */ = {
+			isa = PBXGroup;
+			children = (
+				DE4B28602AF446760021A482 /* View */,
+				DE4B28612AF4467A0021A482 /* ViewModel */,
+			);
+			path = MediaList;
+			sourceTree = "<group>";
+		};
+		DE4B28602AF446760021A482 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE4B286B2AF44D530021A482 /* MediaGrid */,
+				DE4B28622AF446950021A482 /* MediaListView.swift */,
+				DE4B28642AF447220021A482 /* ViewAlignment.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE4B28612AF4467A0021A482 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DE4B286B2AF44D530021A482 /* MediaGrid */ = {
+			isa = PBXGroup;
+			children = (
+				DE4B286C2AF44D5E0021A482 /* MediaItemView.swift */,
+				DE69D4B62AF4EA4C00E0A5BA /* MediaGridView.swift */,
+			);
+			path = MediaGrid;
+			sourceTree = "<group>";
+		};
 		DE54848E2AF249C700922217 = {
 			isa = PBXGroup;
 			children = (
@@ -103,8 +167,8 @@
 		DE5484992AF249C700922217 /* MediaList */ = {
 			isa = PBXGroup;
 			children = (
-				DE54849A2AF249C700922217 /* MediaListApp.swift */,
-				DE54849C2AF249C700922217 /* ContentView.swift */,
+				DE4B285B2AF445450021A482 /* Application */,
+				DE4B285E2AF4464A0021A482 /* MediaListScenes */,
 				DE54849E2AF249CA00922217 /* Assets.xcassets */,
 				DE5484A02AF249CA00922217 /* Preview Content */,
 			);
@@ -161,6 +225,8 @@
 			name = MediaList;
 			packageProductDependencies = (
 				DE5484CA2AF2807F00922217 /* MediaListUIKit */,
+				DE4B28572AF442900021A482 /* Data */,
+				DE4B28592AF442900021A482 /* Domain */,
 			);
 			productName = MediaList;
 			productReference = DE5484972AF249C700922217 /* MediaList.app */;
@@ -276,7 +342,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE54849D2AF249C700922217 /* ContentView.swift in Sources */,
+				DE4B28652AF447220021A482 /* ViewAlignment.swift in Sources */,
+				DE4B285D2AF4454F0021A482 /* AppDelegate.swift in Sources */,
+				DE4B286E2AF44D5F0021A482 /* MediaItemView.swift in Sources */,
+				DE69D4B72AF4EA4C00E0A5BA /* MediaGridView.swift in Sources */,
+				DE4B28632AF446950021A482 /* MediaListView.swift in Sources */,
 				DE54849B2AF249C700922217 /* MediaListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -443,6 +513,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,6 +542,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -598,6 +670,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DE4B28572AF442900021A482 /* Data */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Data;
+		};
+		DE4B28592AF442900021A482 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
 		DE5484CA2AF2807F00922217 /* MediaListUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MediaListUIKit;
