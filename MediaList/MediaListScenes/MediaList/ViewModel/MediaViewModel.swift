@@ -15,6 +15,7 @@ class MediaViewModel: ObservableObject {
     
     @Published private(set) var viewState: ViewState = .loading
     @Published var mediaList: [Media] = []
+    @Published var path = NavigationPath()
     private let useCase: MediaUseCase
     private var subscriptions = Set<AnyCancellable>()
     
@@ -34,7 +35,15 @@ class MediaViewModel: ObservableObject {
         self.viewState = viewState
     }
     
+    func selected(media: Media) {
+        path.append(NavigationRouter.DetailOfMedia(media: media))
+    }
+    
     func fetchMediaList() {
+        guard mediaList.isEmpty else {
+            return
+        }
+        
         updateViewState(newState: .loading)
         
         useCase.fetchMediaList()
