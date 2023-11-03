@@ -52,6 +52,6 @@ public class ImageRepositoryImpl: ImageRepository {
     }
     
     public func resetCache() {
-        
+        localStorage.resetCache()
     }
 }
