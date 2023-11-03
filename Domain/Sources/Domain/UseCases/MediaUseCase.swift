@@ -12,5 +12,5 @@ import SwiftUI
 public protocol MediaUseCase {
 
     func fetchMediaList() -> AnyPublisher<[Media], DomainError>
-    func fetchImage(WithImageName imageName: String) -> AnyPublisher<Image, DomainError>
+    func fetchImage(withImageUrl imageUrl: String) -> AnyPublisher<Image, DomainError>
 }

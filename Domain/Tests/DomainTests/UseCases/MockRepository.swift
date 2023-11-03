@@ -32,11 +32,11 @@ class ImageRepositoryImageSizeFromServerMock: ImageRepository {
         fatalError("does not matter")
     }
     
-    func fetchImageFromLocal(imageName name: String) async throws -> UIImage {
+    func fetchImageFromLocal(imageUrl name: String) async throws -> UIImage {
         throw DomainError.cannotRetrieveImage
     }
     
-    func saveImageToDisk(imageName name: String, image: UIImage) async throws {
+    func saveImageToDisk(imageUrl name: String, image: UIImage) async throws {
         fatalError("does not matter")
     }
     
@@ -44,7 +44,7 @@ class ImageRepositoryImageSizeFromServerMock: ImageRepository {
         return .init(width: 100, height: 200)
     }
     
-    func fetchImageSizeFromLocal(imageName name: String) async throws -> Domain.PreviewMediaSize {
+    func fetchImageSizeFromLocal(imageUrl name: String) async throws -> Domain.PreviewMediaSize {
         fatalError("does not matter")
     }
 }
@@ -60,11 +60,11 @@ class ImageRepositoryImageSizeFromLocalMock: ImageRepository {
         fatalError("does not matter")
     }
     
-    func fetchImageFromLocal(imageName name: String) async throws -> UIImage {
+    func fetchImageFromLocal(imageUrl name: String) async throws -> UIImage {
         return UIImage()
     }
     
-    func saveImageToDisk(imageName name: String, image: UIImage) async throws {
+    func saveImageToDisk(imageUrl name: String, image: UIImage) async throws {
         fatalError("does not matter")
     }
     
@@ -72,13 +72,13 @@ class ImageRepositoryImageSizeFromLocalMock: ImageRepository {
         fatalError("does not matter")
     }
     
-    func fetchImageSizeFromLocal(imageName name: String) async throws -> Domain.PreviewMediaSize {
+    func fetchImageSizeFromLocal(imageUrl name: String) async throws -> Domain.PreviewMediaSize {
         return .init(width: 150, height: 200)
     }
 }
 
 class ImageRepositoryImageSizeFromLocalErrorMock: ImageRepositoryImageSizeFromLocalMock {
-    override func fetchImageSizeFromLocal(imageName name: String) async throws -> PreviewMediaSize {
+    override func fetchImageSizeFromLocal(imageUrl name: String) async throws -> PreviewMediaSize {
         throw DomainError.cannotRetrieveImage
     }
 }
@@ -88,11 +88,11 @@ class ImageRepositoryFetchImageFailFromServerMock: ImageRepository {
         throw DomainError.cannotRetrieveImage
     }
     
-    func fetchImageFromLocal(imageName name: String) async throws -> UIImage {
+    func fetchImageFromLocal(imageUrl name: String) async throws -> UIImage {
         throw DomainError.cannotRetrieveImage
     }
     
-    func saveImageToDisk(imageName name: String, image: UIImage) async throws {
+    func saveImageToDisk(imageUrl name: String, image: UIImage) async throws {
         throw DomainError.cannotRetrieveImage
     }
     
@@ -100,7 +100,7 @@ class ImageRepositoryFetchImageFailFromServerMock: ImageRepository {
         fatalError("does not matter")
     }
     
-    func fetchImageSizeFromLocal(imageName name: String) async throws -> Domain.PreviewMediaSize {
+    func fetchImageSizeFromLocal(imageUrl name: String) async throws -> Domain.PreviewMediaSize {
         fatalError("does not matter")
     }
 }
@@ -112,13 +112,13 @@ class ImageRepositoryFetchImageSuccessFromServerMock: ImageRepositoryFetchImageF
 }
 
 class ImageRepositoryFetchImageSuccessFromLocalMock: ImageRepositoryFetchImageFailFromServerMock {
-    override func fetchImageFromLocal(imageName name: String) async throws -> UIImage {
+    override func fetchImageFromLocal(imageUrl name: String) async throws -> UIImage {
         return UIImage()
     }
 }
 
 class ImageRepositoryFailSaveImageToDiskMock: ImageRepositoryFetchImageSuccessFromServerMock {
-    override func saveImageToDisk(imageName name: String, image: UIImage) async throws {
+    override func saveImageToDisk(imageUrl name: String, image: UIImage) async throws {
         throw DomainError.cannotRetrieveImage
     }
 }

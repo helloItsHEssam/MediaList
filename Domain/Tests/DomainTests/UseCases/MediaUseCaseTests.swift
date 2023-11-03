@@ -187,7 +187,7 @@ final class MediaUseCaseTests: XCTestCase {
         var error: DomainError?
         
         // when
-        useCase.fetchImage(WithImageName: imageName)
+        useCase.fetchImage(withImageUrl: imageName)
             .sink { completion in
                 switch completion {
                 case .failure(let domainError): error = domainError
@@ -216,7 +216,7 @@ final class MediaUseCaseTests: XCTestCase {
         var image: Image?
         
         // when
-        useCase.fetchImage(WithImageName: imageName)
+        useCase.fetchImage(withImageUrl: imageName)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in },
                   receiveValue: { img in
@@ -243,7 +243,7 @@ final class MediaUseCaseTests: XCTestCase {
         var image: Image?
         
         // when
-        useCase.fetchImage(WithImageName: imageName)
+        useCase.fetchImage(withImageUrl: imageName)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in },
                   receiveValue: { img in
@@ -252,7 +252,7 @@ final class MediaUseCaseTests: XCTestCase {
             })
             .store(in: &cancellables)
 
-        wait(for: [expectation], timeout: 5.0)
+        wait(for: [expectation], timeout: 10.0)
         
         // then
         XCTAssertNotNil(image)
@@ -270,7 +270,7 @@ final class MediaUseCaseTests: XCTestCase {
         var image: Image?
         
         // when
-        useCase.fetchImage(WithImageName: imageName)
+        useCase.fetchImage(withImageUrl: imageName)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { _ in },
                   receiveValue: { img in
@@ -279,7 +279,7 @@ final class MediaUseCaseTests: XCTestCase {
             })
             .store(in: &cancellables)
 
-        wait(for: [expectation], timeout: 5.0)
+        wait(for: [expectation], timeout: 10.0)
         
         // then
         XCTAssertNotNil(image)

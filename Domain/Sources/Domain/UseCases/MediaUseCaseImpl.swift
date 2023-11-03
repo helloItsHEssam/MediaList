@@ -71,36 +71,36 @@ public class MediaUseCaseImpl: MediaUseCase {
         var newMediaWithSize = media
         var size: PreviewMediaSize?
         
-        guard let imageName = media.previewLink else {
+        guard let imageUrl = media.previewLink else {
             newMediaWithSize.update(PreviewMediaSize: self.defaultPreviewSize())
             return newMediaWithSize
         }
         
         do {
             // check local
-            let _ = try await self.imageRepository.fetchImageFromLocal(imageName: imageName)
-            size = try? await self.imageRepository.fetchImageSizeFromLocal(imageName: imageName)
+            let _ = try await self.imageRepository.fetchImageFromLocal(imageUrl: imageUrl)
+            size = try? await self.imageRepository.fetchImageSizeFromLocal(imageUrl: imageUrl)
             
         } catch { // does not exist on Local.
-            size = try? await self.imageRepository.fetchImageSizeFromServer(imageUrl: imageName)
+            size = try? await self.imageRepository.fetchImageSizeFromServer(imageUrl: imageUrl)
         }
 
         newMediaWithSize.update(PreviewMediaSize: size ?? self.defaultPreviewSize())
         return newMediaWithSize
     }
     
-    public func fetchImage(WithImageName imageName: String) -> AnyPublisher<Image, DomainError> {
+    public func fetchImage(withImageUrl imageUrl: String) -> AnyPublisher<Image, DomainError> {
         return AnyPublisher { [weak self] in
             guard let self else { throw DomainError.cannotRetrieveImage }
             
             var uiImage: UIImage
             do {
-                uiImage = try await self.imageRepository.fetchImageFromLocal(imageName: imageName)
+                uiImage = try await self.imageRepository.fetchImageFromLocal(imageUrl: imageUrl)
             } catch {
-                uiImage = try await self.imageRepository.fetchImageFromServer(imageUrl: imageName)
+                uiImage = try await self.imageRepository.fetchImageFromServer(imageUrl: imageUrl)
                 
                 // does not matter if could not save into disk
-                try? await self.imageRepository.saveImageToDisk(imageName: imageName, image: uiImage)
+                try? await self.imageRepository.saveImageToDisk(imageUrl: imageUrl, image: uiImage)
             }
             
             let image = Image(uiImage: uiImage)

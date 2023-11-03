@@ -24,4 +24,11 @@ public struct PreviewMediaSize {
         self.width = width
         self.height = height
     }
+    
+    public func calculateViewHeight(basedOnScreenWidth screenWidth: CGFloat) -> CGFloat {
+        switch self.orientation {
+        case .landscape: return 0.56 * screenWidth
+        case .portrait: return 1.25 * screenWidth
+        }
+    }
 }
