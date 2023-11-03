@@ -21,6 +21,15 @@
 		DE5484B82AF249CB00922217 /* MediaListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5484B72AF249CB00922217 /* MediaListUITestsLaunchTests.swift */; };
 		DE5484CB2AF2807F00922217 /* MediaListUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = DE5484CA2AF2807F00922217 /* MediaListUIKit */; };
 		DE69D4B72AF4EA4C00E0A5BA /* MediaGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4B62AF4EA4C00E0A5BA /* MediaGridView.swift */; };
+		DE69D4B92AF4F46F00E0A5BA /* MediaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4B82AF4F46F00E0A5BA /* MediaViewModel.swift */; };
+		DE69D4BB2AF4F4A600E0A5BA /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4BA2AF4F4A600E0A5BA /* ViewState.swift */; };
+		DE69D4C12AF4F87300E0A5BA /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4C02AF4F87300E0A5BA /* AlertView.swift */; };
+		DE69D4C32AF4F8B400E0A5BA /* MesageAlertTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4C22AF4F8B400E0A5BA /* MesageAlertTextView.swift */; };
+		DE69D4C52AF4F8D200E0A5BA /* AlertContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4C42AF4F8D200E0A5BA /* AlertContent.swift */; };
+		DE69D4C82AF4F8ED00E0A5BA /* AlertButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4C72AF4F8ED00E0A5BA /* AlertButtonView.swift */; };
+		DE69D4CC2AF4FE8700E0A5BA /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4CB2AF4FE8700E0A5BA /* DIContainer.swift */; };
+		DE69D4CE2AF4FE9B00E0A5BA /* DIContainerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4CD2AF4FE9B00E0A5BA /* DIContainerImpl.swift */; };
+		DE69D4D02AF4FEC200E0A5BA /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4CF2AF4FEC200E0A5BA /* ViewModelFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +66,15 @@
 		DE5484C82AF26D2600922217 /* MediaListUIKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MediaListUIKit; sourceTree = "<group>"; };
 		DE5484CC2AF2C84000922217 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 		DE69D4B62AF4EA4C00E0A5BA /* MediaGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaGridView.swift; sourceTree = "<group>"; };
+		DE69D4B82AF4F46F00E0A5BA /* MediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewModel.swift; sourceTree = "<group>"; };
+		DE69D4BA2AF4F4A600E0A5BA /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		DE69D4C02AF4F87300E0A5BA /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		DE69D4C22AF4F8B400E0A5BA /* MesageAlertTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesageAlertTextView.swift; sourceTree = "<group>"; };
+		DE69D4C42AF4F8D200E0A5BA /* AlertContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertContent.swift; sourceTree = "<group>"; };
+		DE69D4C72AF4F8ED00E0A5BA /* AlertButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButtonView.swift; sourceTree = "<group>"; };
+		DE69D4CB2AF4FE8700E0A5BA /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		DE69D4CD2AF4FE9B00E0A5BA /* DIContainerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainerImpl.swift; sourceTree = "<group>"; };
+		DE69D4CF2AF4FEC200E0A5BA /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 		DED78C6D2AF3DBE000E300C9 /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Data; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +109,7 @@
 		DE4B285B2AF445450021A482 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				DE69D4CA2AF4FE7600E0A5BA /* DI */,
 				DE54849A2AF249C700922217 /* MediaListApp.swift */,
 				DE4B285C2AF4454F0021A482 /* AppDelegate.swift */,
 			);
@@ -119,7 +138,6 @@
 			children = (
 				DE4B286B2AF44D530021A482 /* MediaGrid */,
 				DE4B28622AF446950021A482 /* MediaListView.swift */,
-				DE4B28642AF447220021A482 /* ViewAlignment.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -127,6 +145,7 @@
 		DE4B28612AF4467A0021A482 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DE69D4B82AF4F46F00E0A5BA /* MediaViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -169,7 +188,8 @@
 			children = (
 				DE4B285B2AF445450021A482 /* Application */,
 				DE4B285E2AF4464A0021A482 /* MediaListScenes */,
-				DE54849E2AF249CA00922217 /* Assets.xcassets */,
+				DE69D4BC2AF4F73D00E0A5BA /* Extra */,
+				DE69D4BD2AF4F74800E0A5BA /* Resources */,
 				DE5484A02AF249CA00922217 /* Preview Content */,
 			);
 			path = MediaList;
@@ -205,6 +225,61 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE69D4BC2AF4F73D00E0A5BA /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				DE69D4C92AF4FE1A00E0A5BA /* Core */,
+				DE69D4BE2AF4F75D00E0A5BA /* UIComponent */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
+		DE69D4BD2AF4F74800E0A5BA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DE54849E2AF249CA00922217 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DE69D4BE2AF4F75D00E0A5BA /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				DE69D4BF2AF4F86500E0A5BA /* AlertView */,
+				DE4B28642AF447220021A482 /* ViewAlignment.swift */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		DE69D4BF2AF4F86500E0A5BA /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				DE69D4C02AF4F87300E0A5BA /* AlertView.swift */,
+				DE69D4C22AF4F8B400E0A5BA /* MesageAlertTextView.swift */,
+				DE69D4C72AF4F8ED00E0A5BA /* AlertButtonView.swift */,
+				DE69D4C42AF4F8D200E0A5BA /* AlertContent.swift */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
+		DE69D4C92AF4FE1A00E0A5BA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DE69D4BA2AF4F4A600E0A5BA /* ViewState.swift */,
+				DE69D4CF2AF4FEC200E0A5BA /* ViewModelFactory.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		DE69D4CA2AF4FE7600E0A5BA /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				DE69D4CB2AF4FE8700E0A5BA /* DIContainer.swift */,
+				DE69D4CD2AF4FE9B00E0A5BA /* DIContainerImpl.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,9 +419,18 @@
 			files = (
 				DE4B28652AF447220021A482 /* ViewAlignment.swift in Sources */,
 				DE4B285D2AF4454F0021A482 /* AppDelegate.swift in Sources */,
+				DE69D4CE2AF4FE9B00E0A5BA /* DIContainerImpl.swift in Sources */,
+				DE69D4D02AF4FEC200E0A5BA /* ViewModelFactory.swift in Sources */,
+				DE69D4C12AF4F87300E0A5BA /* AlertView.swift in Sources */,
 				DE4B286E2AF44D5F0021A482 /* MediaItemView.swift in Sources */,
+				DE69D4B92AF4F46F00E0A5BA /* MediaViewModel.swift in Sources */,
 				DE69D4B72AF4EA4C00E0A5BA /* MediaGridView.swift in Sources */,
+				DE69D4CC2AF4FE8700E0A5BA /* DIContainer.swift in Sources */,
 				DE4B28632AF446950021A482 /* MediaListView.swift in Sources */,
+				DE69D4C82AF4F8ED00E0A5BA /* AlertButtonView.swift in Sources */,
+				DE69D4BB2AF4F4A600E0A5BA /* ViewState.swift in Sources */,
+				DE69D4C52AF4F8D200E0A5BA /* AlertContent.swift in Sources */,
+				DE69D4C32AF4F8B400E0A5BA /* MesageAlertTextView.swift in Sources */,
 				DE54849B2AF249C700922217 /* MediaListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

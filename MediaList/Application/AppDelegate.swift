@@ -14,6 +14,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         MediaListFont.registerFonts()
         
+        let container = DIContainerImpl()
+        ViewModelFactory.shared.register(DIContainer: container)
+        
         return true
     }
 }

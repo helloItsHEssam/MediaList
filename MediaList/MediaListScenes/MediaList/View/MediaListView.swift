@@ -8,25 +8,34 @@
 import SwiftUI
 import Domain
 import MediaListColor
+import MediaListUIComponent
 
 struct MediaListView: View {
     private var list = [Media(title: "hessam", type: .image, previewLink: "111", mediaLink: nil),
                         Media(title: "dsasd", type: .image, previewLink: "222", mediaLink: nil)]
     
-    @State private var isLoading = true
+    @StateObject private var viewModel = ViewModelFactory.shared.createMediaViewModel()
+
     var body: some View {
         ZStack {
-            
-//            ProgressView()
-            
-            GeometryReader { geometry in
-                ScrollView(showsIndicators: true) {
-                    let size = CGSize(width: geometry.size.width - 40, height: geometry.size.height)
-                    MediaGridView(mediaList: list, screenSize: size)
+ 
+            switch viewModel.viewState {
+            case .error(let alertContent):
+                AlertView(content: alertContent) {
+                    // TODO: -
+                }
+
+            case .loading: ProgressView()
+
+            case .result:
+                GeometryReader { geometry in
+                    ScrollView(showsIndicators: true) {
+                        let size = CGSize(width: geometry.size.width - 40, height: geometry.size.height)
+                        MediaGridView(mediaList: list, screenSize: size)
+                    }
                 }
             }
-            
         }
-        .modifier(ViewAlignment())
+        .modifier(ViewAlignment(alignment: .center))
     }
 }
