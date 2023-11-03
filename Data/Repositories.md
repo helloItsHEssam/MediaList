@@ -20,6 +20,7 @@ This is the main part of the **Data** module, responsible for communicating with
   
    This function connects to the server using the "Api" and returns the result after converting it to the desired entity. If an error occurs during retrieval, it's thrown. This class requires an implementation of the "Api" protocol and uses "MediaMapper" to convert Dto to the entity.
 
+<br>
 - **"ImageRepositoryImpl"**: In this section, the "ImageRepository" protocol is implemented, which includes the following functions:
 
 <br>
