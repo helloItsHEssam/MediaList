@@ -50,4 +50,8 @@ public class ImageRepositoryImpl: ImageRepository {
         let previewSizeDto = try await self.localStorage.fetchImageSize(imageUrl: url)
         return previewImageSizeMapper.mapDtoToEntity(input: previewSizeDto)
     }
+    
+    public func resetCache() {
+        
+    }
 }

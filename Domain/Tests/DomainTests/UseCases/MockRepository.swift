@@ -47,6 +47,10 @@ class ImageRepositoryImageSizeFromServerMock: ImageRepository {
     func fetchImageSizeFromLocal(imageUrl name: String) async throws -> Domain.PreviewMediaSize {
         fatalError("does not matter")
     }
+    
+    func resetCache() {
+        fatalError("does not matter")
+    }
 }
 
 class ImageRepositoryImageSizeFromServerErrorMock: ImageRepositoryImageSizeFromServerMock {
@@ -75,6 +79,10 @@ class ImageRepositoryImageSizeFromLocalMock: ImageRepository {
     func fetchImageSizeFromLocal(imageUrl name: String) async throws -> Domain.PreviewMediaSize {
         return .init(width: 150, height: 200)
     }
+    
+    func resetCache() {
+        fatalError("does not matter")
+    }
 }
 
 class ImageRepositoryImageSizeFromLocalErrorMock: ImageRepositoryImageSizeFromLocalMock {
@@ -101,6 +109,10 @@ class ImageRepositoryFetchImageFailFromServerMock: ImageRepository {
     }
     
     func fetchImageSizeFromLocal(imageUrl name: String) async throws -> Domain.PreviewMediaSize {
+        fatalError("does not matter")
+    }
+    
+    func resetCache() {
         fatalError("does not matter")
     }
 }
