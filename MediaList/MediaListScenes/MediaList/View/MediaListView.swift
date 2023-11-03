@@ -11,33 +11,40 @@ import MediaListColor
 import MediaListUIComponent
 
 struct MediaListView: View {
-    
+
     @StateObject private var viewModel = ViewModelFactory.shared.createMediaViewModel()
-
+    
     var body: some View {
-        ZStack {
- 
-            switch viewModel.viewState {
-            case .error(let alertContent):
-                AlertView(content: alertContent) {
-                    viewModel.fetchMediaList()
-                }
+        NavigationStack(path: $viewModel.path) {
+            ZStack {
+     
+                switch viewModel.viewState {
+                case .error(let alertContent):
+                    AlertView(content: alertContent) {
+                        viewModel.fetchMediaList()
+                    }
 
-            case .loading: ProgressView()
+                case .loading: ProgressView()
 
-            case .result:
-                GeometryReader { geometry in
-                    ScrollView(showsIndicators: true) {
-                        let size = CGSize(width: geometry.size.width - 40, height: geometry.size.height)
-                        MediaGridView(mediaList: $viewModel.mediaList,
-                                      screenSize: size, viewModel: viewModel)
+                case .result:
+                    GeometryReader { geometry in
+                        ScrollView(showsIndicators: true) {
+                            let size = CGSize(width: geometry.size.width - 40, height: geometry.size.height)
+                            MediaGridView(mediaList: $viewModel.mediaList,
+                                          screenSize: size, viewModel: viewModel)
+                        }
                     }
                 }
             }
-        }
-        .modifier(ViewAlignment(alignment: .center))
-        .onAppear {
-            viewModel.fetchMediaList()
+            .navigationDestination(for: NavigationRouter.self) { route in
+                switch route {
+                case .DetailOfMedia(let media): MediaDetailView(media: media)
+                }
+            }
+            .modifier(ViewAlignment(alignment: .center))
+            .onAppear {
+                viewModel.fetchMediaList()
+            }
         }
     }
 }

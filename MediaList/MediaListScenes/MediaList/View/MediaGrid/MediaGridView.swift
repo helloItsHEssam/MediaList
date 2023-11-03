@@ -26,7 +26,7 @@ struct MediaGridView: View {
                 MediaItemView(media: media, screenSize: screenSize, viewModel: viewModel)
                     .cornerRadius(12)
                     .onTapGesture {
-                        // TODO: - view model change screen
+                        viewModel.selected(media: media)
                     }
             }
         }

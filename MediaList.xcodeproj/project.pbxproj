@@ -30,6 +30,9 @@
 		DE69D4CE2AF4FE9B00E0A5BA /* DIContainerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4CD2AF4FE9B00E0A5BA /* DIContainerImpl.swift */; };
 		DE69D4D02AF4FEC200E0A5BA /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4CF2AF4FEC200E0A5BA /* ViewModelFactory.swift */; };
 		DE69D4D72AF526FA00E0A5BA /* MediaViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4D62AF526FA00E0A5BA /* MediaViewModelTests.swift */; };
+		DE69D4DB2AF52F4800E0A5BA /* MediaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4DA2AF52F4800E0A5BA /* MediaDetailView.swift */; };
+		DE69D4DD2AF530D100E0A5BA /* MediaInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4DC2AF530D100E0A5BA /* MediaInformationView.swift */; };
+		DE69D4E22AF5340000E0A5BA /* NavigationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69D4E02AF5340000E0A5BA /* NavigationRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		DE69D4CD2AF4FE9B00E0A5BA /* DIContainerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainerImpl.swift; sourceTree = "<group>"; };
 		DE69D4CF2AF4FEC200E0A5BA /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 		DE69D4D62AF526FA00E0A5BA /* MediaViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewModelTests.swift; sourceTree = "<group>"; };
+		DE69D4DA2AF52F4800E0A5BA /* MediaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailView.swift; sourceTree = "<group>"; };
+		DE69D4DC2AF530D100E0A5BA /* MediaInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaInformationView.swift; sourceTree = "<group>"; };
+		DE69D4E02AF5340000E0A5BA /* NavigationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationRouter.swift; sourceTree = "<group>"; };
 		DED78C6D2AF3DBE000E300C9 /* Data */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Data; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				DE4B285F2AF446630021A482 /* MediaList */,
+				DE69D4D82AF52F1D00E0A5BA /* MediaDetail */,
 			);
 			path = MediaListScenes;
 			sourceTree = "<group>";
@@ -267,6 +274,7 @@
 		DE69D4C92AF4FE1A00E0A5BA /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				DE69D4DE2AF533F300E0A5BA /* Navigation */,
 				DE69D4BA2AF4F4A600E0A5BA /* ViewState.swift */,
 				DE69D4CF2AF4FEC200E0A5BA /* ViewModelFactory.swift */,
 			);
@@ -304,6 +312,31 @@
 				DE69D4D62AF526FA00E0A5BA /* MediaViewModelTests.swift */,
 			);
 			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		DE69D4D82AF52F1D00E0A5BA /* MediaDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DE69D4D92AF52F2700E0A5BA /* View */,
+			);
+			path = MediaDetail;
+			sourceTree = "<group>";
+		};
+		DE69D4D92AF52F2700E0A5BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE69D4DC2AF530D100E0A5BA /* MediaInformationView.swift */,
+				DE69D4DA2AF52F4800E0A5BA /* MediaDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE69D4DE2AF533F300E0A5BA /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				DE69D4E02AF5340000E0A5BA /* NavigationRouter.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,6 +479,8 @@
 				DE4B285D2AF4454F0021A482 /* AppDelegate.swift in Sources */,
 				DE69D4CE2AF4FE9B00E0A5BA /* DIContainerImpl.swift in Sources */,
 				DE69D4D02AF4FEC200E0A5BA /* ViewModelFactory.swift in Sources */,
+				DE69D4DD2AF530D100E0A5BA /* MediaInformationView.swift in Sources */,
+				DE69D4E22AF5340000E0A5BA /* NavigationRouter.swift in Sources */,
 				DE69D4C12AF4F87300E0A5BA /* AlertView.swift in Sources */,
 				DE4B286E2AF44D5F0021A482 /* MediaItemView.swift in Sources */,
 				DE69D4B92AF4F46F00E0A5BA /* MediaViewModel.swift in Sources */,
@@ -456,6 +491,7 @@
 				DE69D4BB2AF4F4A600E0A5BA /* ViewState.swift in Sources */,
 				DE69D4C52AF4F8D200E0A5BA /* AlertContent.swift in Sources */,
 				DE69D4C32AF4F8B400E0A5BA /* MesageAlertTextView.swift in Sources */,
+				DE69D4DB2AF52F4800E0A5BA /* MediaDetailView.swift in Sources */,
 				DE54849B2AF249C700922217 /* MediaListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,7 +658,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -651,7 +687,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
