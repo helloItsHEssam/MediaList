@@ -33,12 +33,12 @@ public class ImageRepositoryImpl: ImageRepository {
         return image
     }
     
-    public func fetchImageFromLocal(imageName name: String) async throws -> UIImage {
-        return try await self.localStorage.fetchImage(imageUrl: name)
+    public func fetchImageFromLocal(imageUrl url: String) async throws -> UIImage {
+        return try await self.localStorage.fetchImage(imageUrl: url)
     }
     
-    public func saveImageToDisk(imageName name: String, image: UIImage) async throws {
-        try await self.localStorage.saveImageToDisk(imageUrl: name, image: image)
+    public func saveImageToDisk(imageUrl url: String, image: UIImage) async throws {
+        try await self.localStorage.saveImageToDisk(imageUrl: url, image: image)
     }
     
     public func fetchImageSizeFromServer(imageUrl url: String) async throws -> Domain.PreviewMediaSize {
@@ -46,8 +46,12 @@ public class ImageRepositoryImpl: ImageRepository {
         return previewImageSizeMapper.mapDtoToEntity(input: previewSizeDto)
     }
     
-    public func fetchImageSizeFromLocal(imageName name: String) async throws -> Domain.PreviewMediaSize {
-        let previewSizeDto = try await self.localStorage.fetchImageSize(imageUrl: name)
+    public func fetchImageSizeFromLocal(imageUrl url: String) async throws -> Domain.PreviewMediaSize {
+        let previewSizeDto = try await self.localStorage.fetchImageSize(imageUrl: url)
         return previewImageSizeMapper.mapDtoToEntity(input: previewSizeDto)
+    }
+    
+    public func resetCache() {
+        
     }
 }

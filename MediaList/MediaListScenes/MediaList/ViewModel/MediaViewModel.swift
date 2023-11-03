@@ -63,13 +63,13 @@ class MediaViewModel: ObservableObject {
             .store(in: &subscriptions)
     }
     
-    func fetchMediaImage(WithUrlImage urlImage: String?, previewImage: @escaping BackImage) {
-        guard let urlImage else {
+    func fetchMediaImage(WithImageUrl imageUrl: String?, previewImage: @escaping BackImage) {
+        guard let imageUrl else {
             previewImage(Image("imageFailed"))
             return
         }
 
-        useCase.fetchImage(WithImageName: urlImage)
+        useCase.fetchImage(withImageUrl: imageUrl)
             .retry(3)
             .replaceError(with: Image("imageFailed"))
             .receive(on: DispatchQueue.main)

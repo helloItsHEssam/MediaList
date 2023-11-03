@@ -62,19 +62,8 @@ struct MediaItemView: View {
     private func fetchImageIfNeeded() {
         guard image == nil else { return }
         
-        viewModel.fetchMediaImage(WithUrlImage: media.previewLink) { previewImage in
+        viewModel.fetchMediaImage(WithImageUrl: media.previewLink) { previewImage in
             image = previewImage
-        }
-    }
-}
-
-// TODO: - move to domain module
-extension PreviewMediaSize {
-    
-    func calculateViewHeight(basedOnScreenWidth screenWidth: CGFloat) -> CGFloat {
-        switch self.orientation {
-        case .landscape: return 0.56 * screenWidth
-        case .portrait: return 1.25 * screenWidth
         }
     }
 }

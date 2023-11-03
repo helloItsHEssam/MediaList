@@ -33,5 +33,17 @@ final class PreviewMediaSizeTests: XCTestCase {
         // then
         XCTAssertEqual(orientation, .landscape)
     }
+    
+    func testHeightOfMediaBasedOnWidthScreen() {
+        
+        // given
+        let size = PreviewMediaSize(width: 200, height: 190)
+        
+        // when
+        let height = size.calculateViewHeight(basedOnScreenWidth: 350).rounded()
+        
+        // then
+        XCTAssertEqual(height, 196)
+    }
 
 }

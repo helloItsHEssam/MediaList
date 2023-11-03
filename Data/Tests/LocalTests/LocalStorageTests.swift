@@ -14,11 +14,8 @@ final class LocalStorageTests: XCTestCase {
     private var local: LocalStorage!
 
     override func tearDown() {
+        local.resetCache()
         local = nil
-        
-        let documentsDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
-        let fileURL = documentsDirectory.appendingPathComponent("25371" + ".png")
-        try? FileManager.default.removeItem(atPath: fileURL.path)
     }
     
     func testSaveImageToDisk() async {
@@ -115,6 +112,30 @@ final class LocalStorageTests: XCTestCase {
         } catch {
             // then
             XCTAssertNil(error as? LocalError)
+        }
+    }
+    
+    func testResetCache() async {
+        
+        // given
+        let api = ApiImpl()
+        local = LocalStorageImpl()
+        let imageUrl = "https://wallpapershome.com/images/pages/ico_h/25371.jpg"
+        
+        do {
+            // when
+            let imageData = try await api.fetchImageData(route: .fetchImage(imageUrl: imageUrl))
+            let image = UIImage(data: imageData)
+            
+            // then
+            try await local.saveImageToDisk(imageUrl: imageUrl, image: image!)
+            
+            local.resetCache()
+            let _ = try await local.fetchImage(imageUrl: imageUrl)
+
+        } catch {
+            // then
+            XCTAssertNotNil(error as? LocalError)
         }
     }
 }
