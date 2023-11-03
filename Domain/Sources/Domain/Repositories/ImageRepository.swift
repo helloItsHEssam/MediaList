@@ -15,4 +15,5 @@ public protocol ImageRepository {
     func saveImageToDisk(imageUrl url: String, image: UIImage) async throws
     func fetchImageSizeFromServer(imageUrl url: String) async throws -> PreviewMediaSize
     func fetchImageSizeFromLocal(imageUrl url: String) async throws -> PreviewMediaSize
+    func resetCache()
 }
