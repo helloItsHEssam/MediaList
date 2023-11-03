@@ -36,7 +36,7 @@ final public class LocalStorageImpl: LocalStorage {
             }
             
             var fileURL = documentsDirectory.appendingPathComponent(cacheFolder)
-            fileURL = documentsDirectory.appendingPathComponent(fileName + ".png")
+            fileURL = fileURL.appendingPathComponent(fileName + ".png")
             
             guard fileManger.fileExists(atPath: fileURL.path) else {
                 continuation.resume(throwing: LocalError.cannotFetchImage)
